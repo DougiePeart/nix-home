@@ -7,6 +7,7 @@ let
     doomPrivateDir = ~/docs/repos/dotfiles/doom;  # Directory containing your config.el, init.el
                                 # and packages.el files
   };
+  user= "dougie";
 in
 {
   # Home Manager needs a bit of information about you and the
@@ -68,6 +69,24 @@ in
   };
   programs.zsh = {
     enable = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
+    autocd = true;
+    dirHashes = {
+      org = "~/docs/org";
+      dl = "~/downloads";
+    };
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "fzf"
+        "zsh-autosuggestions"
+        "zsh-vi-mode"
+      ];
+      theme = "frontcube";
+    };
   };
 
 }
