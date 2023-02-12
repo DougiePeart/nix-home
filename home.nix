@@ -1,5 +1,13 @@
 { config, pkgs, ... }:
 
+let
+  doom-emacs = pkgs.callPackage (builtins.fetchTarball {
+    url = https://github.com/nix-community/nix-doom-emacs/archive/master.tar.gz;
+  }) {
+    doomPrivateDir = ~/docs/repos/dotfiles/doom;  # Directory containing your config.el, init.el
+                                # and packages.el files
+  };
+in
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -32,6 +40,7 @@
 
       # Editors
       neovim
+      doom-emacs
       ####
 
       # Terminals
@@ -54,4 +63,8 @@
       };
     };
   };
+  programs.alacritty = {
+
+  };
+
 }
