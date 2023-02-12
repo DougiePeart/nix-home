@@ -64,7 +64,10 @@ in
     };
   };
   programs.alacritty = {
-
+    enable = true;
+  };
+  programs.zsh = {
+    enable = true;
   };
 
 }
